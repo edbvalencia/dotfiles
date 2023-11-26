@@ -1,0 +1,160 @@
+[colors]
+background = #0a0a0a
+background-alt = #B491EE
+foreground = #B491EE
+foreground-alt = #555
+foreground-alt2 = #0a0a0a
+primary = #ffb52a
+secondary = #e60053
+alert = #bd2c40
+
+[bar/bar1]
+width = 100%
+height = 20
+
+radius = 0
+fixed-center = false
+separator = |
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+padding-left = 0
+padding-right = 1
+
+module-margin-left = 1
+module-margin-right = 1
+
+font-0 = "CaskaydiaCove Nerd Font:size=11;2"
+font-1 = "FontAwesome6Free:style=Solid:size=11;2"
+font-2 = "FontAwesome6Free:style=Regular:size=11;2"
+font-3 = "FontAwesome6Brands:style=Regular:size=11;2"
+
+modules-left = i3
+modules-center = 
+modules-right = pulseaudio memory cpu battery date 
+
+wm-restack = i3
+
+cursor-click = pointer
+cursor-scroll = ns-resize
+
+[module/i3]
+type = internal/i3
+
+strip-wsnumbers = true
+index-sort = true
+
+format = <label-state>
+
+label-focused =  %index%
+label-focused-foreground = ${colors.foreground-alt2}
+label-focused-background = ${colors.background-alt}
+label-focused-padding = 1
+
+label-unfocused = %index%
+label-unfocused-padding = 1
+
+label-visible = %index%
+label-visible-padding = 1
+
+[module/cpu]
+type = internal/cpu
+interval = 2
+format-prefix = "  "
+format-prefix-foreground = ${colors.foreground}
+label = %percentage%%
+;label = %percentage:2%%
+
+[module/memory]
+type = internal/memory
+interval = 2
+format-prefix = " "
+format-prefix-foreground = ${colors.foreground}
+label = %percentage_used%%
+
+[module/date]
+type = internal/date
+interval = 5
+
+date = %m-%d%
+date-alt = %m-%d-%Y
+
+time = %H:%M
+time-alt = %H:%M:%S
+
+format-prefix = "󰥔 "
+format-prefix-foreground = ${colors.foreground}
+format-underline = none
+
+label = %time% %date% 
+
+[module/pulseaudio]
+type = internal/pulseaudio
+
+format-volume = <label-volume>
+label-volume = 󰕾 %percentage%%
+label-volume-foreground = ${root.foreground}
+
+label-muted = 
+label-muted-foreground = ${root.foreground}
+
+
+[module/battery]
+type = internal/battery
+
+full-at = 99
+low-at = 5
+
+battery = BAT0
+adapter = ADP1
+
+poll-interval = 1
+
+time-format = %H:%M
+
+format-charging = <animation-charging>  <label-charging>
+
+format-discharging = <ramp-capacity>  <label-discharging>
+
+label-charging = %percentage%%
+label-discharging = %percentage%%
+label-full = %percentage%%
+label-low = %percentage%%
+
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
+
+bar-capacity-width = 10
+
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-3 = 
+animation-charging-4 = 
+
+animation-charging-framerate = 750
+
+animation-discharging-0 = 
+animation-discharging-1 = 
+animation-discharging-2 = 
+animation-discharging-3 = 
+animation-discharging-4 = 
+
+animation-discharging-framerate = 500
+
+animation-low-0 = !
+animation-low-1 = 
+animation-low-framerate = 200
+
+[settings]
+screenchange-reload = true
+
+[global/wm]
+margin-top = 5
+margin-bottom = 5
+
+; vim:ft=dosini
