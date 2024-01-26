@@ -1,4 +1,4 @@
-# Mis Dotfiles
+# Mis Dotfiles Linux (Mint:Ubuntu)
 
 Este es mi repositorio de dotfiles, donde guardo mi configuración personalizada para Linux.
 
