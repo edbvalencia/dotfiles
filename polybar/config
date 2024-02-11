@@ -23,10 +23,29 @@ font-2 = "FontAwesome6Free:style=Regular:size=11;2"
 font-3 = "FontAwesome6Brands:style=Regular:size=11;2"
 modules-left = i3
 modules-center = 
-modules-right = cpu memory pulseaudio battery date 
+modules-right = cpu memory pulseaudio battery date
 wm-restack = i3
 cursor-click = pointer
 cursor-scroll = ns-resize
+
+[module/network-wifi]
+type = internal/network
+interface = wlp3s0
+format-connected = <label-connected>
+label-connected = WIFI
+;label-connected-foreground = #ffffff
+format-disconnected = <label-disconnected>
+label-disconnected = NO WIFI
+;label-disconnected-foreground = #ff0000
+
+
+[module/network-ethernet]
+type = internal/network
+interface = eno1
+format-connected = <label-connected>
+label-connected = ETHERNET
+format-disconnected = <label-disconnected>
+label-disconnected = NO ETHERNET
 
 [module/i3]
 type = internal/i3
@@ -80,39 +99,16 @@ label-muted-foreground = ${colors.foreground}
 
 [module/battery]
 type = internal/battery
-full-at = 99
-low-at = 5
+full-at = 80
+low-at = 60
 battery = BAT0
-adapter = ADP1
+adapter = AC
 poll-interval = 1
-time-format = %H:%M
-;format-charging = <animation-charging>  <label-charging>
-;format-discharging = <ramp-capacity>  <label-discharging>
+label-full = FULL %percentage%%
+label-low = LOW %percentage%%
+label-low-foreground = #FF0000
 label-charging = BATC %percentage%%
 label-discharging = BATD %percentage%%
-label-full = %percentage%%
-label-low = %percentage%%
-ramp-capacity-0 = 
-ramp-capacity-1 = 
-ramp-capacity-2 = 
-ramp-capacity-3 = 
-ramp-capacity-4 = 
-bar-capacity-width = 10
-animation-charging-0 = 
-animation-charging-1 = 
-animation-charging-2 = 
-animation-charging-3 = 
-animation-charging-4 = 
-animation-charging-framerate = 750
-animation-discharging-0 = 
-animation-discharging-1 = 
-animation-discharging-2 = 
-animation-discharging-3 = 
-animation-discharging-4 = 
-animation-discharging-framerate = 500
-animation-low-0 = !
-animation-low-1 = 
-animation-low-framerate = 200
 
 [settings]
 screenchange-reload = true

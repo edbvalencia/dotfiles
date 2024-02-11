@@ -169,7 +169,7 @@ mode "resize" {
     client.placeholder      #2e3440 #1f222d #888888 #1f222d
     client.urgent           #900000 #900000 #ffffff #900000
 
-    client.background       #242424
+    client.background       #1f222d
 
     ##STOP THEMING WM
 bindsym $mod+r mode "resize"
@@ -177,22 +177,21 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 
-#exec_always feh --bg-fill /home/usuario/Pictures/Wallpaper/wall2.png
+#exec_always feh --bg-fill /home/usuario/Wallpapers/wall2.png
 exec_always --no-startup-id "hsetroot -add '#0a0a0a' -add '#0a0a0a' -gradient 0"
 
 exec xset r rate 300 50 &
 
+exec_always --no-startup-id xrandr --output HDMI-A-0 --auto --right-of eDP
+
 # default_border pixel 1
 # default_floating_border pixel 1
 
-new_window pixel 
+new_window pixel 0
 
 # Rofi launcher -- the dmenu alternative
 bindsym Control+Escape exec --no-startup-id rofi -show drun
-bindsym Control+Tab  exec --no-startup-id rofi -show run
-
-
-
-
+bindsym Control+Tab exec --no-startup-id ~/.config/rofi/scripts/rofi-launcher.sh
+#bindsym Control+Tab  exec --no-startup-id rofi -show run                 unlockkeyring
 
 
